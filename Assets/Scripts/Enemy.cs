@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour {
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(speed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(speed, rb.linearVelocity.y);
 
         if(speed > 0 && !facingRight)
         {
@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour {
                 box.enabled = false;
             }
 
-            collision.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            collision.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
 
             speed = 0;

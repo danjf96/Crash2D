@@ -31,7 +31,7 @@ public class CaixaScript : MonoBehaviour
         {
             audioSrc.clip = audios[0];
             audioSrc.Play();
-            collision.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            collision.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
             collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
             anim.SetTrigger("Colidindo");
             if (frutas > 0)
