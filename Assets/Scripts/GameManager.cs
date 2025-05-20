@@ -4,21 +4,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
     public static GameManager gm;
     private int vidas = 2;
     private int frutas = 0;
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+    void Awake()
+    {
         if (gm == null)
         {
             gm = this;
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
             Destroy(gameObject);
-	}
+    }
 
     private void Start()
     {
@@ -26,18 +29,19 @@ public class GameManager : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update()
+    {
+
+    }
 
     public void SetVidas(int vida)
     {
         vidas += vida;
-        if(vidas >= 0)
+        if (vidas >= 0)
         {
             AtualizaHud();
         }
-        
+
     }
 
     public int GetVidas()
@@ -48,14 +52,14 @@ public class GameManager : MonoBehaviour {
     public void SetFrutas(int fruta)
     {
         frutas += fruta;
-        if(frutas >= 50)
+        if (frutas >= 50)
         {
             frutas = 0;
             vidas += 1;
         }
 
         AtualizaHud();
-               
+
     }
 
     public void GetFrutas()
@@ -70,13 +74,26 @@ public class GameManager : MonoBehaviour {
         GameObject.Find("FrutaText").GetComponent<Text>().text = frutas.ToString();
     }
 
-    
-    void OnLevelWasLoaded(int level)
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(SceneManager.GetActiveScene().buildIndex == 0)
+        // Se for a cena inicial (índice 0), reseta os valores
+        if (scene.buildIndex == 0)
         {
             vidas = 2;
             frutas = 0;
+        }
+
+        // Atualiza HUD após troca de cena
+        AtualizaHud();
+    }
+    
+     void OnDestroy()
+    {
+        // Evita múltiplos registros se o objeto for recriado por engano
+        if (gm == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }
 }
