@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CaixaScript : MonoBehaviour
+public class BoxScript : MonoBehaviour
 {
     Animator anim;
 
@@ -17,12 +17,6 @@ public class CaixaScript : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         audioSrc = gameObject.GetComponent<AudioSource>();
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,7 +41,7 @@ public class CaixaScript : MonoBehaviour
             {
                 audioSrc.clip = audios[1];
                 AudioSource.PlayClipAtPoint(audios[1], transform.position);
-                Destroy(gameObject);
+                Destroy(this.gameObject);
             }
                
         }
