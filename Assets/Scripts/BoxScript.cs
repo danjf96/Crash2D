@@ -11,6 +11,9 @@ public class BoxScript : MonoBehaviour
     public GameObject frutaPrefab;
     public AudioClip[] audios;
     private AudioSource audioSrc;
+
+    [SerializeField]
+    private float volume;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,11 +42,25 @@ public class BoxScript : MonoBehaviour
             }
             else
             {
-                audioSrc.clip = audios[1];
-                AudioSource.PlayClipAtPoint(audios[1], transform.position);
-                Destroy(this.gameObject);
+               DestroyBox();
             }
                
         }
+    }
+
+    public void DestroyBoxByAttack()
+    {
+        GameObject tempFruta = Instantiate(frutaPrefab, transform.position, transform.rotation) as GameObject;
+        tempFruta.GetComponent<Animator>().SetTrigger("Coletando");
+        tempFruta.GetComponent<AudioSource>().Play();
+        GameManager.gm.SetFrutas(1);
+        DestroyBox();
+    }   
+
+    private void DestroyBox()
+    {
+        audioSrc.clip = audios[1];
+        AudioSource.PlayClipAtPoint(audios[1], transform.position, volume);
+        Destroy(this.gameObject);
     }
 }

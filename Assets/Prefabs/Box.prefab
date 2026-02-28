@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1765083543482584120}
   m_Layer: 10
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,6 +230,7 @@ MonoBehaviour:
   audios:
   - {fileID: 8300000, guid: 366db87f3f6cdb04ca95ffbc5433b06f, type: 3}
   - {fileID: 8300000, guid: b33a77b0399de41d4bef026ae585c004, type: 3}
+  volume: 2
 --- !u!82 &1765083543482584120
 AudioSource:
   m_ObjectHideFlags: 0
@@ -241,7 +242,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 3807a2bb12d502d41883209cadce8339, type: 3}
+  m_Resource: {fileID: 8300000, guid: b33a77b0399de41d4bef026ae585c004, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
