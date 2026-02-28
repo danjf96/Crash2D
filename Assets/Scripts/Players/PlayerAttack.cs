@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour {
 
     Animator anim;
     public float intevaloDeAtaque;
-    private float proximoAtaque;
+    private float nextAttack;
 
     public AudioClip spinSound;
     private AudioSource audioS;
+    private PlayerInputActions input;
 
 	// Use this for initialization
 	void Start () {
@@ -18,20 +20,24 @@ public class PlayerAttack : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
-        if(Input.GetButtonDown("Fire1") && Time.time > proximoAtaque)
-        {
-            Atacando();
-        }
-		
-	}
-
-    void Atacando()
+    void Awake()
     {
-        audioS.clip = spinSound;
-        audioS.Play();
-        anim.SetTrigger("Ataque");
-        proximoAtaque = Time.time + intevaloDeAtaque;
+        input = new PlayerInputActions();
+
+        input.Player.Attack.performed += ctx => Attack();
+    }
+
+    void OnEnable() => input.Enable();
+    void OnDisable() => input.Disable();
+
+    void Attack()
+    {
+        if (Time.time > nextAttack)
+        {
+            audioS.clip = spinSound;
+            audioS.Play();
+            anim.SetTrigger("Ataque");
+            nextAttack = Time.time + intevaloDeAtaque;
+        }
     }
 }

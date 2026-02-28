@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,25 +27,37 @@ public class BoxScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            audioSrc.clip = audios[0];
-            audioSrc.Play();
-            collision.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
-            collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
-            anim.SetTrigger("Colidindo");
-            if (frutas > 0)
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            Boolean isFloating = player.IsFloating();
+            if(!isFloating)
             {
-                GameObject tempFruta = Instantiate(frutaPrefab, transform.position, transform.rotation) as GameObject;
-                tempFruta.GetComponent<Animator>().SetTrigger("Coletando");
-                tempFruta.GetComponent<AudioSource>().Play();
-                frutas -= 1;
-                GameManager.gm.SetFrutas(1);
-                Destroy(tempFruta, 0.667f);
+                return;
             }
-            else
-            {
-               DestroyBox();
-            }
+
+            JumpingTheBox(collision);
                
+        }
+    }
+
+    void JumpingTheBox(Collider2D collision)
+    {
+        audioSrc.clip = audios[0];
+        audioSrc.Play();
+        collision.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
+        collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+        anim.SetTrigger("Colidindo");
+        if (frutas > 0)
+        {
+            GameObject tempFruta = Instantiate(frutaPrefab, transform.position, transform.rotation) as GameObject;
+            tempFruta.GetComponent<Animator>().SetTrigger("Coletando");
+            tempFruta.GetComponent<AudioSource>().Play();
+            frutas -= 1;
+            GameManager.gm.SetFrutas(1);
+            Destroy(tempFruta, 0.667f);
+        }
+        else
+        {
+            DestroyBox();
         }
     }
 

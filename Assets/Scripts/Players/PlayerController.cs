@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour {
-
+public class PlayerController : MonoBehaviour
+{
     public float speed;
     public float jumpForce;
 
@@ -11,45 +11,61 @@ public class PlayerController : MonoBehaviour {
     private bool facingRight = true;
     private bool jump = false;
     private Animator anim;
-    private bool noChao = false;
+    private bool onTheFloor = false;
     private Transform groundCheck;
 
-	// Use this for initialization
-	void Start () {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-        anim = gameObject.GetComponent<Animator>();
-        groundCheck = gameObject.transform.Find("GroundCheck");
-	}
+    private PlayerInputActions inputController;
+    private Vector2 moveInput;
 
-    // Update is called once per frame
-    void Update(){
+    void Awake()
+    {
+        inputController = new PlayerInputActions();
+        
+        inputController.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        moveInput = moveInput.normalized;
 
-        noChao = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        inputController.Player.Move.canceled += ctx => moveInput = Vector2.zero;
 
-        if (Input.GetButtonDown("Jump") && noChao)
-        {
-            jump = true;
-            anim.SetTrigger("Pulou");
-        }
+        inputController.Player.Jump.performed += ctx => OnJump();
+    }
+    
+    void OnJump()
+    {
+        anim.SetTrigger("Pulou");
+        jump = true;
+    }
+
+    void OnEnable() => inputController.Enable();
+    void OnDisable() => inputController.Disable();
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        groundCheck = transform.Find("GroundCheck");
+    }
+
+    void Update()
+    {
+        onTheFloor = Physics2D.Linecast(
+            transform.position,
+            groundCheck.position,
+            1 << LayerMask.NameToLayer("Ground")
+        );
     }
 
     void FixedUpdate()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        anim.SetFloat("Velocidade", Mathf.Abs(h));
+        anim.SetFloat("Velocidade", Mathf.Abs(moveInput.x));
 
-        rb.linearVelocity = new Vector2(h * speed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
 
-        if(h > 0 && !facingRight)
-        {
+        if (moveInput.x > 0 && !facingRight)
             Flip();
-        }
-        else if(h < 0 && facingRight)
-        {
+        else if (moveInput.x < 0 && facingRight)
             Flip();
-        }
 
-        if (jump)
+        if (jump && onTheFloor)
         {
             rb.AddForce(new Vector2(0, jumpForce));
             jump = false;
@@ -63,5 +79,10 @@ public class PlayerController : MonoBehaviour {
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public Boolean IsFloating()
+    {
+        return !onTheFloor;
     }
 }
