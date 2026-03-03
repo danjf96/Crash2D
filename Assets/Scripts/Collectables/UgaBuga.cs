@@ -7,6 +7,8 @@ public class UgaBuga: MonoBehaviour
     public float minDistance = 1.5f;
     public Vector2 offset = new Vector2(0f, 1.5f);
 
+    private int count = 0;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -29,5 +31,17 @@ public class UgaBuga: MonoBehaviour
                 speed * Time.deltaTime
             );
         }
+    }
+
+    public void UpdatedCollectedCount()
+    {
+        if(count  >= 1) return;
+
+        count += 1;
+    }
+
+    public int GetCountCollected()
+    {
+       return count;
     }
 }

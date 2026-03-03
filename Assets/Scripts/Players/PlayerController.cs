@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     private PlayerInputActions inputController;
     private Vector2 moveInput;
+
+    private GameObject ugaBugaInstance;
 
     void Awake()
     {
@@ -84,5 +87,29 @@ public class PlayerController : MonoBehaviour
     public Boolean IsFloating()
     {
         return !onTheFloor;
+    }
+
+    public void OnUgaBugaCollected(GameObject ugaBuga, Vector3 position)
+    {
+        if (ugaBugaInstance == null)
+        {   
+            GameObject ugaBugaObj = Instantiate(ugaBuga, position, Quaternion.identity);
+            ugaBugaInstance = ugaBuga;
+        }
+
+        if(ugaBugaInstance != null)
+        {
+            
+            if (ugaBugaInstance.TryGetComponent<UgaBuga>(out var script))
+            {
+                script.UpdatedCollectedCount();
+            }
+        }
+
+    }
+
+    public GameObject GetUgaBugaInstance()
+    {
+        return ugaBugaInstance;
     }
 }

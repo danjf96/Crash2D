@@ -5,3 +5,11 @@ public static class Tags
     public const string Collectible = "Collectible";
     public const string Box = "Box";
 }
+
+public enum BoxType
+{
+    Normal,
+    multiple,
+    Explosive,
+    UgaBuga
+}

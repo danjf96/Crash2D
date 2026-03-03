@@ -224,13 +224,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 800
-  frutas: 3
   frutaPrefab: {fileID: 4545586338216546028, guid: b13b38e42c16c42d8a4b91c9d3e2ed5c,
     type: 3}
   audios:
   - {fileID: 8300000, guid: 366db87f3f6cdb04ca95ffbc5433b06f, type: 3}
   - {fileID: 8300000, guid: b33a77b0399de41d4bef026ae585c004, type: 3}
   volume: 2
+  boxType: 0
+  normalSprite: {fileID: -6644802020411283342, guid: 8efab011bb584468aaf69987673db559,
+    type: 3}
+  multipleSprite: {fileID: -6644802020411283342, guid: 8efab011bb584468aaf69987673db559,
+    type: 3}
+  explosiveSprite: {fileID: -6644802020411283342, guid: 8efab011bb584468aaf69987673db559,
+    type: 3}
+  ugaBugaSprite: {fileID: -6644802020411283342, guid: 8efab011bb584468aaf69987673db559,
+    type: 3}
+  ugaBugaPrefab: {fileID: 3507457212112117273, guid: b101187c3457543a79da3ba477724a0b,
+    type: 3}
 --- !u!82 &1765083543482584120
 AudioSource:
   m_ObjectHideFlags: 0

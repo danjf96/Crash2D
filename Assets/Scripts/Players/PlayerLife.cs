@@ -34,7 +34,6 @@ public class PlayerLife : MonoBehaviour {
             gameObject.GetComponent<PlayerAttack>().enabled = false;
             gameObject.GetComponent<PlayerController>().enabled = false;
         }
-
     }
 
     public void Reset()

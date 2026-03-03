@@ -8,19 +8,29 @@ public class BoxScript : MonoBehaviour
     Animator anim;
 
     public float jumpForce;
-    public int frutas;
     public GameObject frutaPrefab;
     public AudioClip[] audios;
     private AudioSource audioSrc;
-
     [SerializeField]
     private float volume;
-    // Start is called before the first frame update
+    public BoxType boxType;
+
+    public Sprite normalSprite;
+    public Sprite multipleSprite;
+    public Sprite explosiveSprite;
+    public Sprite ugaBugaSprite;
+
+    public GameObject ugaBugaPrefab;
+    private int hitsToBreak = 1;
+
+    private SpriteRenderer spriteRender;
+
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
         audioSrc = gameObject.GetComponent<AudioSource>();
-
+        ConfigureBoxType();
+        spriteRender = gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,18 +57,24 @@ public class BoxScript : MonoBehaviour
         collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         player.OnJump();
-        
         anim.SetTrigger("Colidindo");
-        if (frutas > 0)
+        
+        if (this.hitsToBreak > 0)
         {
-            GameObject tempFruta = Instantiate(frutaPrefab, transform.position, transform.rotation) as GameObject;
-            tempFruta.GetComponent<Animator>().SetTrigger("Coletando");
-            tempFruta.GetComponent<AudioSource>().Play();
-            frutas -= 1;
-            GameManager.gm.SetFrutas(1);
-            Destroy(tempFruta, 0.667f);
+            this.hitsToBreak -= 1;
+            switch (boxType)
+            {
+                case BoxType.Normal:
+                    Debug.Log("Normal BOX");
+                    CollectFruitPrefab();
+                    break;
+                case BoxType.UgaBuga:
+                    player.OnUgaBugaCollected(ugaBugaPrefab, transform.position);
+                    break;
+            }   
         }
-        else
+
+        if(this.hitsToBreak <= 0)
         {
             DestroyBox();
         }
@@ -66,11 +82,7 @@ public class BoxScript : MonoBehaviour
 
     public void DestroyBoxByAttack()
     {
-        GameObject tempFruta = Instantiate(frutaPrefab, transform.position, transform.rotation) as GameObject;
-        tempFruta.GetComponent<Animator>().SetTrigger("Coletando");
-        tempFruta.GetComponent<AudioSource>().Play();
-        GameManager.gm.SetFrutas(1);
-        Destroy(tempFruta, 0.667f);
+        CollectFruitPrefab();
         DestroyBox();
     }   
 
@@ -80,4 +92,28 @@ public class BoxScript : MonoBehaviour
         AudioSource.PlayClipAtPoint(audios[1], transform.position, volume);
         Destroy(this.gameObject);
     }
+
+    void ConfigureBoxType()
+    {
+        switch (boxType)
+        {
+            case BoxType.Normal:
+                this.hitsToBreak = 1;
+                break;
+            case BoxType.UgaBuga:
+                this.hitsToBreak = 1;
+                // spriteRender.color = Color.red;
+                break;
+        }
+    }  
+
+    void CollectFruitPrefab()
+    {
+        GameObject tempFruta = Instantiate(frutaPrefab, transform.position, transform.rotation) as GameObject;
+        tempFruta.GetComponent<Animator>().SetTrigger("Coletando");
+        tempFruta.GetComponent<AudioSource>().Play();
+        GameManager.gm.SetFrutas(1);
+        Destroy(tempFruta, 0.667f);
+    }
+ 
 }
