@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using System;
 
 public class PlayerAttack : MonoBehaviour {
 
@@ -12,14 +13,13 @@ public class PlayerAttack : MonoBehaviour {
     public AudioClip spinSound;
     private AudioSource audioS;
     private PlayerInputActions input;
+    Boolean isAttacking = false;
 
-	// Use this for initialization
 	void Start () {
         anim = gameObject.GetComponent<Animator>();
         audioS = gameObject.GetComponent<AudioSource>();
 	}
 	
-	// Update is called once per frame
     void Awake()
     {
         input = new PlayerInputActions();
@@ -34,10 +34,21 @@ public class PlayerAttack : MonoBehaviour {
     {
         if (Time.time > nextAttack)
         {
+            isAttacking = true;
             audioS.clip = spinSound;
             audioS.Play();
             anim.SetTrigger("Ataque");
             nextAttack = Time.time + intevaloDeAtaque;
         }
+    }
+
+    public void OnAttackFinished()
+    {
+       isAttacking = false;
+    }
+
+    public bool IsAttacking()
+    {
+        return isAttacking;
     }
 }

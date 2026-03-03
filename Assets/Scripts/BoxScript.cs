@@ -45,6 +45,9 @@ public class BoxScript : MonoBehaviour
         audioSrc.Play();
         collision.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
         collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        player.OnJump();
+        
         anim.SetTrigger("Colidindo");
         if (frutas > 0)
         {
@@ -67,6 +70,7 @@ public class BoxScript : MonoBehaviour
         tempFruta.GetComponent<Animator>().SetTrigger("Coletando");
         tempFruta.GetComponent<AudioSource>().Play();
         GameManager.gm.SetFrutas(1);
+        Destroy(tempFruta, 0.667f);
         DestroyBox();
     }   
 

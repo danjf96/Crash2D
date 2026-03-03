@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         inputController.Player.Jump.performed += ctx => OnJump();
     }
     
-    void OnJump()
+    public void OnJump()
     {
         anim.SetTrigger("Pulou");
         jump = true;

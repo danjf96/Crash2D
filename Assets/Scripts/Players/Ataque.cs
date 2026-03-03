@@ -35,8 +35,10 @@ public class Ataque : MonoBehaviour {
     }
 
     private void OnCollectibleCollision(Collider2D collision)
-    {
-       
+    {        
+        float direction = (collision.transform.position.x < transform.position.x) ? -1 : 1;
+
+        collision.gameObject.GetComponent<FrutaScript>().DestroyByAttack(tempoDeDestruicao, forcaHorizontal, direction);
     }
 
     private void OnEnemyCollision(Collider2D collision)

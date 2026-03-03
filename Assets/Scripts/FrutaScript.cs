@@ -26,6 +26,11 @@ public class FrutaScript : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            PlayerAttack playerAttack = collision.gameObject.GetComponent<PlayerAttack>();
+            if(playerAttack.IsAttacking())
+            {
+                return;
+            }
             audioS.Play();
             GameManager.gm.SetFrutas(1);
             col.enabled = false;
@@ -33,5 +38,12 @@ public class FrutaScript : MonoBehaviour
             Destroy(gameObject, 0.667f);
 
         }
+    }
+
+    public void DestroyByAttack(float timeOfDestroy, float forceHorizontal, float direction)
+    {
+        col.enabled = false;
+        col.transform.position += new Vector3(forceHorizontal * direction * 0.1f, 0, 0);
+        Destroy(gameObject, timeOfDestroy);
     }
 }
