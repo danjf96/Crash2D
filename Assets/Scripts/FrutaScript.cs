@@ -43,7 +43,15 @@ public class FrutaScript : MonoBehaviour
     public void DestroyByAttack(float timeOfDestroy, float forceHorizontal, float direction)
     {
         col.enabled = false;
-        col.transform.position += new Vector3(forceHorizontal * direction * 0.1f, 0, 0);
+        this.enabled = false;
+
+        Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+
+        Vector2 dir = new Vector2(direction, 1f).normalized;
+        rb.AddForce(dir * forceHorizontal, ForceMode2D.Impulse);
+                
         Destroy(gameObject, timeOfDestroy);
     }
 }

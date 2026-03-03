@@ -23,7 +23,7 @@ MonoBehaviour:
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
-  m_Maximized: 1
+  m_Maximized: 0
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 116
+  controlID: 108
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 112}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 117
+  controlID: 109
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 112}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 60
+  controlID: 53
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -1443,7 +1443,6 @@ MonoBehaviour:
         m_Data: 0
       m_ExpandedIDs:
       - m_Data: -1300
-      - m_Data: 33524
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1519,7 +1518,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1541,7 +1540,6 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 33188
     - m_Data: 33974
     - m_Data: 33976
     - m_Data: 33978
@@ -1567,7 +1565,6 @@ MonoBehaviour:
     - m_Data: 34018
     - m_Data: 34020
     - m_Data: 34022
-    - m_Data: 34024
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1594,14 +1591,13 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 55.998535}
+    scrollPos: {x: 0, y: 141}
     m_SelectedIDs:
-    - m_Data: 33554
+    - m_Data: 27554
     m_LastClickedID:
-      m_Data: 33554
+      m_Data: 27554
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 33188
     - m_Data: 33974
     - m_Data: 33976
     - m_Data: 33978
@@ -1627,7 +1623,6 @@ MonoBehaviour:
     - m_Data: 34018
     - m_Data: 34020
     - m_Data: 34022
-    - m_Data: 34024
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1655,8 +1650,8 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: 33554
-    m_LastClickedInstanceID: 33554
+    - m_Data: 27554
+    m_LastClickedInstanceID: 27554
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: []
     m_RenameOverlay:
