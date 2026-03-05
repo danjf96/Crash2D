@@ -34,7 +34,7 @@ public class Box : MonoBehaviour
 
         currentHits--;
        
-        if(player.transform.position.y > transform.position.y)
+        if(player.transform.position.y > transform.position.y && !player.GetComponent<PlayerAttack>().IsAttacking())
         {
             player.Bounce();
         }

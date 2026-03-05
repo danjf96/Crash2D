@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
             Flip();
 
         if (jump && onTheFloor)
-        {
+        {  
             rb.AddForce(new Vector2(0, jumpForce));
             jump = false;
         }
