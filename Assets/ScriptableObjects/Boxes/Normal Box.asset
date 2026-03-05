@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3039d15f4d04647b582b78620cbbdd80, type: 3}
+  m_Name: Normal Box
+  m_EditorClassIdentifier: Assembly-CSharp::NormalBox
+  hitsToBreak: 1
+  hitClip: {fileID: 8300000, guid: 366db87f3f6cdb04ca95ffbc5433b06f, type: 3}
+  breakClip: {fileID: 8300000, guid: b33a77b0399de41d4bef026ae585c004, type: 3}
+  animatorController: {fileID: 9100000, guid: ed81381306c2742bda41fd9f4776054c, type: 2}
+  hitTrigger: Colidindo
+  fruitPrefab: {fileID: 4545586338216546028, guid: b13b38e42c16c42d8a4b91c9d3e2ed5c,
+    type: 3}

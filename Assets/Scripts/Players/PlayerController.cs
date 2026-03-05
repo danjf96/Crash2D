@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
+[RequireComponent(typeof(PlayerAttack))]
 public class PlayerController : MonoBehaviour
 {
     public float speed;
@@ -34,6 +35,9 @@ public class PlayerController : MonoBehaviour
     
     public void OnJump()
     {
+        PlayerAttack attackScript = GetComponent<PlayerAttack>();
+        if(attackScript.IsAttacking()) return;
+        
         anim.SetTrigger("Pulou");
         jump = true;
     }
@@ -111,5 +115,13 @@ public class PlayerController : MonoBehaviour
     public GameObject GetUgaBugaInstance()
     {
         return ugaBugaInstance;
+    }
+
+    public void Bounce()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        rb.linearVelocity = new Vector2(0, 0);
+        rb.AddForce(new Vector2(0, jumpForce));
     }
 }

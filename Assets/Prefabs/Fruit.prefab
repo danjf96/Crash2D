@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6031089738353988633}
   - component: {fileID: 5941208844727338371}
   m_Layer: 0
-  m_Name: Fruta
+  m_Name: Fruit
   m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

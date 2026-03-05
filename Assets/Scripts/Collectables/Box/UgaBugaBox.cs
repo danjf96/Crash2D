@@ -1,0 +1,23 @@
+using UnityEngine;
+
+[CreateAssetMenu(menuName = "Boxes/Uga Buga Box")]
+public class UgaBugaBox : BoxBehavior
+{
+    public GameObject ugaBugaPrefab;
+    public AudioClip audioUgaBuga;
+
+
+    public override void OnHit(Box box, PlayerController player)
+    {
+        player.OnUgaBugaCollected(ugaBugaPrefab, box.transform.position);
+        if(audioUgaBuga != null)
+            AudioSource.PlayClipAtPoint(audioUgaBuga, box.transform.position, 12f);
+    }
+
+    public override void OnBreak(Box box)
+    {
+        base.OnBreak(box);
+        if (breakClip != null)
+            AudioSource.PlayClipAtPoint(breakClip, box.transform.position);
+    }
+}

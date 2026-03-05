@@ -23,7 +23,8 @@ public class Ataque : MonoBehaviour {
     }
     private void OnBoxCollision(Collider2D boxCollision)
     {
-        boxCollision.gameObject.GetComponent<BoxScript>().DestroyBoxByAttack(); 
+        Box box = boxCollision.GetComponent<Box>();
+        box.OnHit(GetComponentInParent<PlayerController>());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
