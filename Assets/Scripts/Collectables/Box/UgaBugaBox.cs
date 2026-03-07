@@ -11,7 +11,7 @@ public class UgaBugaBox : BoxBehavior
     {
         player.OnUgaBugaCollected(ugaBugaPrefab, box.transform.position);
         if(audioUgaBuga != null)
-            AudioSource.PlayClipAtPoint(audioUgaBuga, box.transform.position, 12f);
+            AudioSource.PlayClipAtPoint(audioUgaBuga, box.transform.position, 2f);
     }
 
     public override void OnBreak(Box box)

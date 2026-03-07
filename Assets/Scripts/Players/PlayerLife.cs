@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,12 +11,15 @@ public class PlayerLife : MonoBehaviour {
 
     public AudioClip deathSound;
     private AudioSource audioS;
-	// Use this for initialization
+
+    
 	void Start () {
         anim = gameObject.GetComponent<Animator>();
         audioS = gameObject.GetComponent<AudioSource>();
         GameManager.gm.AtualizaHud();
 	}
+
+    private bool Immortal = false; 
 	
 	// Update is called once per frame
 	void Update () {
@@ -24,7 +28,7 @@ public class PlayerLife : MonoBehaviour {
 
     public void PerdeVida()
     {
-        if (vivo)
+        if (vivo && !Immortal)
         {
             audioS.clip = deathSound;
             audioS.Play();
@@ -47,4 +51,13 @@ public class PlayerLife : MonoBehaviour {
 
         }
     }
+
+    public void SetImmortal(bool value)    {
+        Immortal = value;
+    }
+
+    public bool GetImmortal()
+    {
+        return Immortal;
+    }  
 }

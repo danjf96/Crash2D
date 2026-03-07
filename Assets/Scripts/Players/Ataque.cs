@@ -42,23 +42,8 @@ public class Ataque : MonoBehaviour {
         collision.gameObject.GetComponent<FrutaScript>().DestroyByAttack(tempoDeDestruicao, forcaHorizontal, direction);
     }
 
-    private void OnEnemyCollision(Collider2D collision)
+    private void OnEnemyCollision(Collider2D collider)
     {
-        collision.gameObject.GetComponent<Enemy>().enabled = false;
-        BoxCollider2D[] boxes = collision.gameObject.GetComponents<BoxCollider2D>();
-
-        foreach (BoxCollider2D box in boxes)
-        {
-            box.enabled = false;
-        }
-
-        if (collision.transform.position.x < transform.position.x)
-            forcaHorizontal *= -1;
-
-        collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaHorizontal, forcaVertical), ForceMode2D.Impulse);
-
-        Destroy(collision.gameObject, tempoDeDestruicao);
-
-        forcaHorizontal = forcaHorizontalPadrao;
+        collider.gameObject.GetComponent<Enemy>().OnColliderByAtaque(forcaHorizontal, tempoDeDestruicao);
     }
 }

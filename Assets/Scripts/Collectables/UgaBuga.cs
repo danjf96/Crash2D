@@ -1,25 +1,26 @@
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class UgaBuga: MonoBehaviour
 {        
-    private Transform player;
+    private GameObject player;
     public float speed = 8f;
     public float minDistance = 1.5f;
-    public Vector2 offset = new Vector2(0f, 1.5f);
+    public Vector2 offset = new(0f, 1.5f);
 
     private int count = 0;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-
+        player = GameObject.FindGameObjectWithTag("Player");
+        SetImmortalTemporarily();
     }
 
     void Update()
     {
         if (player == null) return;
 
-        Vector2 targetPosition = (Vector2)player.position + offset;
+        Vector2 targetPosition = (Vector2)player.transform.position + offset;
 
         float distance = Vector2.Distance(transform.position, targetPosition);
 
@@ -35,7 +36,11 @@ public class UgaBuga: MonoBehaviour
 
     public void UpdatedCollectedCount()
     {
-        if(count  >= 1) return;
+        if(count  >= 3)
+        {
+
+            return;
+        }
 
         count += 1;
     }
@@ -43,5 +48,32 @@ public class UgaBuga: MonoBehaviour
     public int GetCountCollected()
     {
        return count;
+    }
+
+    public void LostUgaBuga()
+    {
+        if(count <= 0)
+        {
+            return;
+        }
+
+        count -= 1;
+    }
+
+    private async void SetImmortalTemporarily()
+    {
+        PlayerLife playerLife = player.GetComponent<PlayerLife>();
+        playerLife.SetImmortal(true);
+
+        SpriteRenderer playerSprite = player.GetComponent<SpriteRenderer>();
+        Color originalColor = playerSprite.color;
+
+        playerSprite.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.5f);
+
+        await Task.Delay(5000);
+        LostUgaBuga();
+        playerSprite.color = originalColor;
+        playerLife.SetImmortal(false);
+        
     }
 }

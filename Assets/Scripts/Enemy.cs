@@ -79,7 +79,34 @@ public class Enemy : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if(collision.gameObject.GetComponent<PlayerLife>().GetImmortal())
+            {
+                // Ataque atk = collision.gameObject.GetComponentInParent<Ataque>();
+                OnColliderByAtaque(15f, 1f);
+                return;
+            }
+
             collision.gameObject.GetComponent<PlayerLife>().PerdeVida();
         }
+    }
+
+    public void OnColliderByAtaque(float forcaHorizontal, float tempoDeDestruicao)
+    {
+        Enemy enemy = GetComponent<Enemy>();
+
+        enemy.enabled = false;
+        BoxCollider2D[] boxes = enemy.GetComponents<BoxCollider2D>();
+
+        foreach (BoxCollider2D box in boxes)
+        {
+            box.enabled = false;
+        }
+
+        if (enemy.transform.position.x < transform.position.x)
+            forcaHorizontal *= -1;
+
+        enemy.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaHorizontal, 0), ForceMode2D.Impulse);
+
+        Destroy(enemy.gameObject, tempoDeDestruicao);
     }
 }

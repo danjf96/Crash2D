@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    public Boolean IsFloating()
+    public bool IsFloating()
     {
         return !onTheFloor;
     }
