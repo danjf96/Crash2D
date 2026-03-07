@@ -11,6 +11,7 @@ public class PlayerLife : MonoBehaviour {
 
     public AudioClip deathSound;
     private AudioSource audioS;
+    private bool immortal = false; 
 
     
 	void Start () {
@@ -19,16 +20,9 @@ public class PlayerLife : MonoBehaviour {
         GameManager.gm.AtualizaHud();
 	}
 
-    private bool Immortal = false; 
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void PerdeVida()
     {
-        if (vivo && !Immortal)
+        if (vivo && !immortal)
         {
             audioS.clip = deathSound;
             audioS.Play();
@@ -53,11 +47,11 @@ public class PlayerLife : MonoBehaviour {
     }
 
     public void SetImmortal(bool value)    {
-        Immortal = value;
+        immortal = value;
     }
 
     public bool GetImmortal()
     {
-        return Immortal;
+        return immortal;
     }  
 }
