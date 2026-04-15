@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-     public void OnUgaBugaCollected(GameObject ugaBuga, Vector3 position)
+    public void OnUgaBugaCollected(GameObject ugaBuga, Vector3 position)
     {
         if (currentUgaBuga == null)
         {
@@ -61,5 +61,22 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
+    }
+
+    public int GetUgaBugaCount()
+    {
+        if (currentUgaBuga != null && currentUgaBuga.TryGetComponent<UgaBuga>(out var script))
+        {
+            return script.GetCountCollected();
+        }
+        return 0;
+    }
+
+    public void LoseUgaBuga()
+    {
+        if (currentUgaBuga != null && currentUgaBuga.TryGetComponent<UgaBuga>(out var script))
+        {
+            script.LostUgaBuga();
+        }
     }
 }

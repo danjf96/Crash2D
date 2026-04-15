@@ -12,8 +12,8 @@ public class UgaBuga: MonoBehaviour
 
     void Start()
     {
+        count = 1;
         player = GameObject.FindGameObjectWithTag("Player");
-        SetImmortalTemporarily();
     }
 
     void Update()
@@ -36,9 +36,9 @@ public class UgaBuga: MonoBehaviour
 
     public void UpdatedCollectedCount()
     {
-        if(count  >= 3)
+        if(count == 3)
         {
-
+            SetImmortalTemporarily();
             return;
         }
 

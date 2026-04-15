@@ -13,16 +13,25 @@ public class PlayerLife : MonoBehaviour {
     private AudioSource audioS;
     private bool immortal = false; 
 
+    private PlayerManager playerManager;
+
     
 	void Start () {
         anim = gameObject.GetComponent<Animator>();
         audioS = gameObject.GetComponent<AudioSource>();
         GameManager.gm.AtualizaHud();
+        playerManager = GetComponent<PlayerManager>();
 	}
 
     public void PerdeVida()
     {
-        if (vivo && !immortal)
+        if(immortal)
+        {
+            return;
+        }   
+
+        int currentUgaBugaCount = playerManager.GetUgaBugaCount();
+        if (vivo && currentUgaBugaCount == 0)
         {
             audioS.clip = deathSound;
             audioS.Play();
@@ -31,7 +40,12 @@ public class PlayerLife : MonoBehaviour {
             GameManager.gm.SetFruits(-1);
             gameObject.GetComponent<PlayerAttack>().enabled = false;
             gameObject.GetComponent<PlayerController>().enabled = false;
+            
+        } else if(currentUgaBugaCount > 0)
+        {
+           playerManager.LoseUgaBuga();
         }
+
     }
 
     public void Reset()
