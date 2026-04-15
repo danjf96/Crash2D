@@ -23,7 +23,7 @@ public class NormalBox : BoxBehavior
         GameObject tempFruta = Instantiate(fruitPrefab, transform.position, transform.rotation) as GameObject;
         tempFruta.GetComponent<Animator>().SetTrigger("Coletando");
         tempFruta.GetComponent<AudioSource>().Play();
-        GameManager.gm.SetFrutas(1);
+        GameManager.gm.SetFruits(1);
         Destroy(tempFruta, 0.667f);
     }
 }

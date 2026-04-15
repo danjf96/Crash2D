@@ -32,7 +32,7 @@ public class FrutaScript : MonoBehaviour
                 return;
             }
             audioS.Play();
-            GameManager.gm.SetFrutas(1);
+            GameManager.gm.SetFruits(1);
             col.enabled = false;
             anim.SetTrigger("Coletando");
             Destroy(gameObject, 0.667f);

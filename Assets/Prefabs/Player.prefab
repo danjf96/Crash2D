@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 879374895072907775}
   - component: {fileID: 4786963325538951598}
   - component: {fileID: 1647576704149654789}
+  - component: {fileID: 1578442562129232231}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -403,6 +404,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1578442562129232231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5081701202197741490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331960ab70fbc4497b07b3cf168343a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+  ugaBugaPrefab: {fileID: 3507457212112117273, guid: b101187c3457543a79da3ba477724a0b,
+    type: 3}
 --- !u!1 &5258999136292450425
 GameObject:
   m_ObjectHideFlags: 0

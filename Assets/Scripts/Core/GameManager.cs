@@ -8,9 +8,7 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager gm;
-    private int vidas = 2;
-    private int frutas = 0;
-    // Use this for initialization
+    public PlayerData playerData;
     void Awake()
     {
         if (gm == null)
@@ -28,16 +26,10 @@ public class GameManager : MonoBehaviour
         AtualizaHud();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetLife(int life)
     {
-
-    }
-
-    public void SetVidas(int vida)
-    {
-        vidas += vida;
-        if (vidas >= 0)
+        playerData.lifes += life;
+        if (life >= 0)
         {
             AtualizaHud();
         }
@@ -46,32 +38,32 @@ public class GameManager : MonoBehaviour
 
     public int GetVidas()
     {
-        return vidas;
+        return playerData.lifes;
     }
 
-    public void SetFrutas(int fruta)
+    public void SetFruits(int fruit)
     {
-        frutas += fruta;
-        if (frutas >= 50)
+        playerData.fruits += fruit;
+        if (playerData.fruits >= 50)
         {
-            frutas = 0;
-            vidas += 1;
+            playerData.fruits = 0;
+            playerData.lifes += 1;
         }
 
         AtualizaHud();
 
     }
 
-    public void GetFrutas()
+    public int GetFruits()
     {
-
+        return playerData.fruits;
     }
 
     public void AtualizaHud()
     {
 
-        GameObject.Find("VidasText").GetComponent<Text>().text = vidas.ToString();
-        GameObject.Find("FrutaText").GetComponent<Text>().text = frutas.ToString();
+        GameObject.Find("VidasText").GetComponent<Text>().text = playerData.lifes.ToString();
+        GameObject.Find("FrutaText").GetComponent<Text>().text = playerData.fruits.ToString();
     }
 
 
@@ -80,20 +72,28 @@ public class GameManager : MonoBehaviour
         // Se for a cena inicial (índice 0), reseta os valores
         if (scene.buildIndex == 0)
         {
-            vidas = 2;
-            frutas = 0;
+            playerData.lifes = 2;
+            playerData.fruits = 0;
         }
 
         // Atualiza HUD após troca de cena
         AtualizaHud();
     }
     
-     void OnDestroy()
+    void OnDestroy()
     {
         // Evita múltiplos registros se o objeto for recriado por engano
         if (gm == this)
         {
+            ResetPlayerData();
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
+    }
+
+    void ResetPlayerData()
+    {
+        playerData.lifes = 3;
+        playerData.fruits = 0;
+        SceneManager.LoadScene(0);
     }
 }

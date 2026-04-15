@@ -9,7 +9,13 @@ public class UgaBugaBox : BoxBehavior
 
     public override void OnHit(Box box, PlayerController player)
     {
-        player.OnUgaBugaCollected(ugaBugaPrefab, box.transform.position);
+        var playerManager = player.GetComponent<PlayerManager>();
+
+        if (playerManager != null)
+        {
+            playerManager.OnUgaBugaCollected(ugaBugaPrefab, box.transform.position);
+        }
+
         if(audioUgaBuga != null)
             AudioSource.PlayClipAtPoint(audioUgaBuga, box.transform.position, 2f);
     }

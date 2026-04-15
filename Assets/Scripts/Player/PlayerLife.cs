@@ -28,7 +28,7 @@ public class PlayerLife : MonoBehaviour {
             audioS.Play();
             vivo = false;
             anim.SetTrigger("Morrendo");
-            GameManager.gm.SetVidas(-1);
+            GameManager.gm.SetFruits(-1);
             gameObject.GetComponent<PlayerAttack>().enabled = false;
             gameObject.GetComponent<PlayerController>().enabled = false;
         }

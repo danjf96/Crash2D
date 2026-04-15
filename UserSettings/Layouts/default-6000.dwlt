@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 98
+  controlID: 20
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 112}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 99
+  controlID: 101
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -1308,9 +1308,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 2.5990953, y: -0.22551672, z: -0.07122049}
+    m_Target: {x: 3.002037, y: -0.29573014, z: -0.07259209}
     speed: 2
-    m_Value: {x: 2.5990953, y: -0.22551672, z: -0.07122049}
+    m_Value: {x: 3.002037, y: -0.29573014, z: -0.07259209}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1360,9 +1360,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.902475
+    m_Target: 8.039635
     speed: 2
-    m_Value: 7.902475
+    m_Value: 8.039635
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1442,10 +1442,7 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -4816
-      - m_Data: -1376
-      - m_Data: 34574
-      - m_Data: 34640
+      - m_Data: -1300
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1521,7 +1518,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/ScriptableObjects/Boxes
+    - Assets/Scripts/Collectables/Box
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1543,45 +1540,45 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 33826
-    - m_Data: 33858
-    - m_Data: 33868
-    - m_Data: 35202
-    - m_Data: 35204
-    - m_Data: 35206
-    - m_Data: 35208
-    - m_Data: 35210
-    - m_Data: 35212
-    - m_Data: 35214
-    - m_Data: 35216
-    - m_Data: 35218
-    - m_Data: 35220
-    - m_Data: 35222
-    - m_Data: 35224
-    - m_Data: 35226
-    - m_Data: 35228
-    - m_Data: 35230
-    - m_Data: 35232
-    - m_Data: 35234
-    - m_Data: 35236
-    - m_Data: 35238
-    - m_Data: 35240
-    - m_Data: 35242
-    - m_Data: 35244
-    - m_Data: 35246
-    - m_Data: 35248
-    - m_Data: 35250
-    - m_Data: 35252
-    - m_Data: 35254
-    - m_Data: 35256
-    - m_Data: 35258
-    - m_Data: 35260
-    - m_Data: 35262
-    - m_Data: 35264
-    - m_Data: 35266
-    - m_Data: 35268
-    - m_Data: 35270
-    - m_Data: 35272
+    - m_Data: 33662
+    - m_Data: 33674
+    - m_Data: 33770
+    - m_Data: 34014
+    - m_Data: 34016
+    - m_Data: 34018
+    - m_Data: 34020
+    - m_Data: 34022
+    - m_Data: 34024
+    - m_Data: 34026
+    - m_Data: 34028
+    - m_Data: 34030
+    - m_Data: 34032
+    - m_Data: 34034
+    - m_Data: 34036
+    - m_Data: 34038
+    - m_Data: 34040
+    - m_Data: 34042
+    - m_Data: 34044
+    - m_Data: 34046
+    - m_Data: 34048
+    - m_Data: 34050
+    - m_Data: 34052
+    - m_Data: 34054
+    - m_Data: 34056
+    - m_Data: 34058
+    - m_Data: 34060
+    - m_Data: 34062
+    - m_Data: 34064
+    - m_Data: 34066
+    - m_Data: 34068
+    - m_Data: 34070
+    - m_Data: 34072
+    - m_Data: 34074
+    - m_Data: 34076
+    - m_Data: 34078
+    - m_Data: 34080
+    - m_Data: 34082
+    - m_Data: 34084
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1608,52 +1605,51 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 15.999817}
-    m_SelectedIDs:
-    - m_Data: 34516
+    scrollPos: {x: 0, y: 221.99957}
+    m_SelectedIDs: []
     m_LastClickedID:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 33826
-    - m_Data: 33858
-    - m_Data: 33868
-    - m_Data: 35202
-    - m_Data: 35204
-    - m_Data: 35206
-    - m_Data: 35208
-    - m_Data: 35210
-    - m_Data: 35212
-    - m_Data: 35214
-    - m_Data: 35216
-    - m_Data: 35218
-    - m_Data: 35220
-    - m_Data: 35222
-    - m_Data: 35224
-    - m_Data: 35226
-    - m_Data: 35228
-    - m_Data: 35230
-    - m_Data: 35232
-    - m_Data: 35234
-    - m_Data: 35236
-    - m_Data: 35238
-    - m_Data: 35240
-    - m_Data: 35242
-    - m_Data: 35244
-    - m_Data: 35246
-    - m_Data: 35248
-    - m_Data: 35250
-    - m_Data: 35252
-    - m_Data: 35254
-    - m_Data: 35256
-    - m_Data: 35258
-    - m_Data: 35260
-    - m_Data: 35262
-    - m_Data: 35264
-    - m_Data: 35266
-    - m_Data: 35268
-    - m_Data: 35270
-    - m_Data: 35272
+    - m_Data: 33662
+    - m_Data: 33674
+    - m_Data: 33770
+    - m_Data: 34014
+    - m_Data: 34016
+    - m_Data: 34018
+    - m_Data: 34020
+    - m_Data: 34022
+    - m_Data: 34024
+    - m_Data: 34026
+    - m_Data: 34028
+    - m_Data: 34030
+    - m_Data: 34032
+    - m_Data: 34034
+    - m_Data: 34036
+    - m_Data: 34038
+    - m_Data: 34040
+    - m_Data: 34042
+    - m_Data: 34044
+    - m_Data: 34046
+    - m_Data: 34048
+    - m_Data: 34050
+    - m_Data: 34052
+    - m_Data: 34054
+    - m_Data: 34056
+    - m_Data: 34058
+    - m_Data: 34060
+    - m_Data: 34062
+    - m_Data: 34064
+    - m_Data: 34066
+    - m_Data: 34068
+    - m_Data: 34070
+    - m_Data: 34072
+    - m_Data: 34074
+    - m_Data: 34076
+    - m_Data: 34078
+    - m_Data: 34080
+    - m_Data: 34082
+    - m_Data: 34084
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1680,9 +1676,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs:
-    - m_Data: 34516
-    m_LastClickedInstanceID: 34516
+    m_SelectedInstanceIDs: []
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: []
     m_RenameOverlay:
