@@ -91,8 +91,6 @@ public class PlayerController : MonoBehaviour
         return !onTheFloor;
     }
 
-   
-
     public void Bounce()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();

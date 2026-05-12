@@ -86,6 +86,13 @@ public class Enemy : MonoBehaviour {
                 return;
             }
 
+            bool hasMask = GameManager.gm.playerData.hasMask;
+            if (hasMask) {
+                collision.gameObject.GetComponent<PlayerManager>().LoseUgaBuga();
+                OnColliderByAtaque(15f, 1f);
+                return;
+            }
+
             collision.gameObject.GetComponent<PlayerLife>().PerdeVida();
         }
     }
