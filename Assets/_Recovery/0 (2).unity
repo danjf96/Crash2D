@@ -1470,7 +1470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 781879523}
   m_Layer: 0
-  m_Name: Caixas
+  m_Name: Boxes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3207,6 +3207,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3714010123631477958, guid: 68ac19d560e7048c199c80f4948eef69,
         type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1967682350}
+    - target: {fileID: 3714010123631477958, guid: 68ac19d560e7048c199c80f4948eef69,
+        type: 3}
+      propertyPath: audioSrc
+      value: 
+      objectReference: {fileID: 1967682349}
+    - target: {fileID: 3714010123631477958, guid: 68ac19d560e7048c199c80f4948eef69,
+        type: 3}
       propertyPath: behavior
       value: 
       objectReference: {fileID: 11400000, guid: cefb274bd6a2c4b648237fe1968166c3,
@@ -3219,6 +3229,18 @@ PrefabInstance:
 --- !u!4 &1967682347 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1903499191965175932, guid: 68ac19d560e7048c199c80f4948eef69,
+    type: 3}
+  m_PrefabInstance: {fileID: 1967682346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1967682349 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1765083543482584120, guid: 68ac19d560e7048c199c80f4948eef69,
+    type: 3}
+  m_PrefabInstance: {fileID: 1967682346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1967682350 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1903499191965175933, guid: 68ac19d560e7048c199c80f4948eef69,
     type: 3}
   m_PrefabInstance: {fileID: 1967682346}
   m_PrefabAsset: {fileID: 0}
@@ -3384,6 +3406,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3714010123631477958, guid: 68ac19d560e7048c199c80f4948eef69,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 2058302235}
+    - target: {fileID: 3714010123631477958, guid: 68ac19d560e7048c199c80f4948eef69,
+        type: 3}
+      propertyPath: audioSrc
+      value: 
+      objectReference: {fileID: 2058302234}
+    - target: {fileID: 3714010123631477958, guid: 68ac19d560e7048c199c80f4948eef69,
+        type: 3}
+      propertyPath: behavior
+      value: 
+      objectReference: {fileID: 11400000, guid: 10c42d674d86149a38968dce69f5f17d,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3392,6 +3430,18 @@ PrefabInstance:
 --- !u!4 &2058302232 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1903499191965175932, guid: 68ac19d560e7048c199c80f4948eef69,
+    type: 3}
+  m_PrefabInstance: {fileID: 2058302231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2058302234 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1765083543482584120, guid: 68ac19d560e7048c199c80f4948eef69,
+    type: 3}
+  m_PrefabInstance: {fileID: 2058302231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2058302235 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1903499191965175933, guid: 68ac19d560e7048c199c80f4948eef69,
     type: 3}
   m_PrefabInstance: {fileID: 2058302231}
   m_PrefabAsset: {fileID: 0}
